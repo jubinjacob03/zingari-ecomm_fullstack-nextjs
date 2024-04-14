@@ -11,14 +11,14 @@ export default function Cart() {
   const { cartProducts, removeProduct, addProduct, clearCart } = useContext(CartContext);
   const [products, setProducts] = useState([]);
   const [address, setAddress] = useState('');
-  const [email, setEmail] = useState('');
-  const [name, setName] = useState('');
   const [city, setCity] = useState('');
-  const [country, setCountry] = useState('');
+  const [state, setState] = useState('');
   const [zip, setZip] = useState('');
   const [loading, setLoading] = useState(true);
   const { data: session } = useSession();
   const [isSuccess, setIsSuccess] = useState(false)
+
+  const country = 'IN';
 
   useEffect(() => {
     setLoading(true);
@@ -269,8 +269,8 @@ export default function Cart() {
                   <div class="col-span-4">
                     <label class="mb-1 block text-sm font-medium text-text">State</label>
                     <input type="text" name="state" class="block w-full rounded-md p-3 border border-gray-300 shadow-sm focus:border-primary-400 focus:ring focus:ring-primary-200 focus:ring-opacity-50 disabled:cursor-not-allowed disabled:bg-gray-50 disabled:text-gray-500" placeholder=""
-                      value={country}
-                      onChange={ev => setCountry(ev.target.value)}
+                      value={state}
+                      onChange={ev => setState(ev.target.value)}
                       required
                     />
                   </div>

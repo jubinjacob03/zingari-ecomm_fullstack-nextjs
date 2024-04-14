@@ -30,7 +30,7 @@ export default async function handler(req, res) {
         {
           quantity,
           price_data: {
-            currency: 'KES',
+            currency: 'inr',
             product_data: { name: productInfo.title },
             unit_amount: quantity * productInfo.price * 100 ,
           },
@@ -50,6 +50,7 @@ export default async function handler(req, res) {
     customer_email: email,
     success_url: process.env.SUCCESS_URL + '/cart?success=1',
     cancel_url: process.env.SUCCESS_URL + '/cart?canceled=1',
+    billing_address_collection: 'required',
     metadata: { orderId: orderDoc._id.toString(), test: 'ok' }
   })
 
