@@ -18,7 +18,6 @@ export default function Cart() {
   const { data: session } = useSession();
   const [isSuccess, setIsSuccess] = useState(false)
 
-  const country = 'IN';
 
   useEffect(() => {
     setLoading(true);
@@ -75,7 +74,7 @@ export default function Cart() {
 
   async function stripeCheckout() {
     const response = await axios.post('/api/checkout', {
-      email: session.user.email, name: session.user.name, address, country, zip, city, cartProducts
+      email: session.user.email, name: session.user.name, address, state, zip, city, cartProducts
     });
 
     if (response.data.url) {
@@ -123,7 +122,7 @@ export default function Cart() {
                             <h3 className="text-md text-text max-w-md">{product.title}</h3>
 
                             <dl className="mt-0.5 space-y-px text-[10px] text-text">
-                              <p>ksh .{cartProducts.filter(id => id === product._id).length * product.price}</p>
+                              <p>Rs .{cartProducts.filter(id => id === product._id).length * product.price}</p>
                             </dl>
                           </div>
 
@@ -175,17 +174,17 @@ export default function Cart() {
                         </div>
                         <div className="flex justify-between">
                           <dt>Subtotal</dt>
-                          <dd>Ksh. {formatPrice(total)}</dd>
+                          <dd>Rs. {formatPrice(total)}</dd>
                         </div>
 
                         <strike className="flex justify-between">
                           <dt>VAT</dt>
-                          <dd>ksh. {formatPrice(total / 1000)}</dd>
+                          <dd>Rs. {formatPrice(total / 1000)}</dd>
                         </strike>
 
                         <div className="flex justify-between !text-base font-medium">
                           <dt>Total</dt>
-                          <dd>Ksh. {formatPrice(total)}</dd>
+                          <dd>Rs. {formatPrice(total)}</dd>
 
                         </div>
                       </dl>

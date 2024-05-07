@@ -88,7 +88,7 @@ export default function Products({ allProducts }) {
 
                         <div className="mt-1.5 flex flex-col items-center justify-between text-text">
                           <p className="tracking-wide text-primary text-sm md:text-md">
-                            ksh. {formatPrice(product.price)}
+                            Rs. {formatPrice(product.price)}
                           </p>
 
                           <div className="col-span-12 text-center w-full mt-3">
@@ -97,7 +97,7 @@ export default function Products({ allProducts }) {
                                 addProduct(product._id);
                                 toast.success("Item added to cart!");
                               }}
-                              className="disabled block rounded bg-secondary px-5 py-3 text-md text-text w-full transition hover:bg-purple-300"
+                              className="disabled block rounded bg-secondary px-5 py-3 text-md text-text w-full transition hover:bg-primary hover:text-white"
                             >
                               Add to cart
                             </button>
@@ -183,7 +183,7 @@ export async function getServerSideProps() {
 //                     </Link>
 
 //                     <div className="mt-1.5 flex flex-col   items-center justify-between text-text">
-//                       <p className="tracking-wide text-primary text-sm md:text-md">ksh. {formatPrice(product.price)}</p>
+//                       <p className="tracking-wide text-primary text-sm md:text-md">Rs. {formatPrice(product.price)}</p>
 
 //                       <div class="col-span-12 text-center w-full mt-3">
 //                         <button

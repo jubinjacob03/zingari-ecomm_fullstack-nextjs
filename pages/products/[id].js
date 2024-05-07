@@ -23,7 +23,7 @@ export default function ProductPage({ product }) {
             />
           </div>
           <div className="grid grid-cols-2 lg:grid lg:grid-cols-1 lg:gap-y-4 px-2 gap-2 md:gap-0 md:px-2">
-            {product.images.slice(1, 3).map((image, index) => (
+            {product.images.slice(1, 5).map((image, index) => (
               <div
                 key={index}
                 className="lg:aspect-h-2 lg:aspect-w-3 lg:overflow-hidden lg:rounded-lg "
@@ -86,7 +86,7 @@ export default function ProductPage({ product }) {
             <div className="mt-4 flex justify-between items-center">
               <h2 className="text-xl font-semibold text-gray-900">Price</h2>
               <p className="mt-2 text-primary font-semibold text-lg">
-                Ksh {formatPrice(product.price)}
+                Rs {formatPrice(product.price)}
               </p>
             </div>
             <div className="w-full">

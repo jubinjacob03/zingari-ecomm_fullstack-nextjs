@@ -8,9 +8,12 @@ export default async function handler(req, res) {
     res.json('Should be a post request');
     return;
   }
+ 
 
+  // Test Card:  4000 0035 6000 0008
 
-  const { email, name, address, city, country, zip, cartProducts } = req.body;
+  const country ='India';
+  const { email, name, address, city, state, zip, cartProducts } = req.body;
 
   await mongooseConnect();
 
@@ -41,7 +44,7 @@ export default async function handler(req, res) {
   }
 
   const orderDoc = await Order.create({
-    line_items, email, name, address, city, country, zip, paid: false
+    line_items, email, name, address, city, country, state, zip, paid: false
   })
 
   const session = await stripe.checkout.sessions.create({
@@ -50,7 +53,7 @@ export default async function handler(req, res) {
     customer_email: email,
     success_url: process.env.SUCCESS_URL + '/cart?success=1',
     cancel_url: process.env.SUCCESS_URL + '/cart?canceled=1',
-    billing_address_collection: 'required',
+    // billing_address_collection: 'required',
     metadata: { orderId: orderDoc._id.toString(), test: 'ok' }
   })
 
