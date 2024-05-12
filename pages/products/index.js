@@ -29,8 +29,10 @@ export default function Products({ allProducts }) {
       setFilteredProducts(allProducts);
     } else {
       const lowerCaseQuery = searchQuery.toLowerCase();
-      const filtered = allProducts.filter((product) =>
-        product.title.toLowerCase().includes(lowerCaseQuery)
+      const filtered = allProducts.filter(
+        (product) =>
+          product.title.toLowerCase().includes(lowerCaseQuery) ||
+          (product.productId && product.productId.includes(searchQuery))
       );
       setFilteredProducts(filtered);
     }
@@ -50,7 +52,7 @@ export default function Products({ allProducts }) {
         <div className="mt-14 md:mt-6 w-full px-4 md:p-0">
           <input
             type="text"
-            placeholder="Search products"
+            placeholder="Search products with Title or product ID"
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
             className="mb-4 px-4 py-2 rounded-lg border border-gray-300 w-full" // Increased the input size
@@ -193,7 +195,7 @@ export async function getServerSideProps() {
 //                           Add to cart
 //                         </button>
 //                       </div>
-                      
+
 //                     </div>
 //                   </div>
 //                 </div>
@@ -206,7 +208,6 @@ export async function getServerSideProps() {
 //   );
 
 // }
-
 
 // export async function getServerSideProps() {
 //   await mongooseConnect();

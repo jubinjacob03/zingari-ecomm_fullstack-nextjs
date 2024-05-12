@@ -4,6 +4,8 @@ import { CartContext } from "../../lib/CartContext";
 import { useRouter } from "next/router";
 import { signOut, useSession } from "next-auth/react";
 import axios from "axios";
+import logo from "../../public/logo.png";
+import Image from "next/image";
 
 export default function Header() {
   const [isMobileNavOpen, setIsMobileNavOpen] = useState(false);
@@ -14,10 +16,11 @@ export default function Header() {
   const { data: session } = useSession();
 
   const [categories, setCategories] = useState([]);
+  const [selectedCategory, setSelectedCategory] = useState("0");
 
   useEffect(() => {
     axios
-      .get("/api/category")
+      .get("/api/categories")
       .then((response) => {
         setCategories(response.data);
       })
@@ -25,7 +28,6 @@ export default function Header() {
         console.error("Error fetching categories:", error);
       });
   }, []);
-
 
   const toggleMobileNav = () => {
     setIsMobileNavOpen(!isMobileNavOpen);
@@ -38,6 +40,18 @@ export default function Header() {
     await signOut();
     await router.push("/");
   }
+
+  const handleCategoryChange = (e) => {
+    const [categoryId, categoryName] = e.target.value.split(':');
+    if (e.target.value !== "") {
+      setSelectedCategory(`${categoryId}:${categoryName}`);
+      router.push(`/category/${categoryId}?${categoryName}`); // Update the URL query parameter
+    }
+    if (e.target.value === "") {
+      setSelectedCategory("");
+      router.push(`/`); // Update the URL query parameter
+    }
+  };
 
   return (
     <>
@@ -139,7 +153,7 @@ export default function Header() {
             className="relative lg:left-0 left-[45px] text-text font-medium text-lg hover:text-primary"
             href="/"
           >
-            <img src="./logo.png" className="max-w-[100px] p-2" />
+            <Image src={logo} className="max-w-[100px] p-2" />
           </Link>
 
           <div className="flex flex-1 items-center justify-end md:justify-between">
@@ -167,16 +181,20 @@ export default function Header() {
                   </Link>
                 </li>
 
-                <li>
+                <li class="hs-dropdown relative inline-flex">
                   <select
-                    className={`text-accent transition hover:text-accent/75 ${
+                    className={`text-accent transition hover:text-accent/75 hs-dropdown-toggle py-3 px-4 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-gray-200 bg-white shadow-sm hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none ${
                       pathname === "/categories" ? "text-primary" : ""
                     } `}
-                    href="/categories"
+                    value={selectedCategory} onChange={handleCategoryChange}
                   >
-                    <option value="0">Categories</option>
+                    <option className="py-2 px-3 rounded-lg text-sm text-gray-800 hover:bg-gray-100 focus:outline-none focus:bg-gray-100" value="">Select a category</option>
                     {categories.map((category) => (
-                      <option key={category._id} value={category._id}>
+                      <option
+                        className="py-2 px-3 rounded-lg text-sm text-gray-800 hover:bg-gray-100 focus:outline-none focus:bg-gray-100"
+                        key={category._id}
+                        value={`${category._id}:${category.name}`}
+                      >
                         {category.name}
                       </option>
                     ))}

@@ -9,21 +9,35 @@ const formatPrice = (price) => {
 };
 
 export default function ProductPage({ product }) {
-  const { addProduct } = useContext(CartContext)
+  const { addProduct } = useContext(CartContext);
   if (product) {
     return (
-      <section className="mt-20 md:mt-6 ">
+      <section className="mt-20 md:mt-6 mb-5 ">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           {/* Image section */}
-          <div className="lg:aspect-h-2 lg:aspect-w-2 lg:rounded-lg overflow-hidden px-4 md:px-2">
-            <img
-              src={product.images[0]}
-              alt={product.images[0]}
-              className="w-full h-full md:h-[90vh] object-cover object-center border border-primary rounded-lg"
-            />
+          <div className="grid grid-cols-2 lg:grid lg:grid-cols-1 lg:gap-y-4 px-2 gap-4 md:px-2 md:grid-cols-1">
+            <div className="lg:aspect-h-2 lg:aspect-w-2 lg:rounded-lg overflow-hidden px-4 md:px-2">
+              <img
+                src={product.images[0]}
+                alt={product.images[0]}
+                className="w-full h-full md:h-[90vh] object-cover object-center border border-primary rounded-lg"
+              />
+            </div>
+            {product.images.slice(1, 2).map((image, index) => (
+              <div
+                key={index}
+                className="lg:aspect-h-2 lg:aspect-w-3 lg:overflow-hidden lg:rounded-lg "
+              >
+                <img
+                  src={image}
+                  alt={image}
+                  className="w-full h-full md:h-[44vh] object-cover object-center border rounded-lg border-secondary p-4"
+                />
+              </div>
+            ))}
           </div>
-          <div className="grid grid-cols-2 lg:grid lg:grid-cols-1 lg:gap-y-4 px-2 gap-2 md:gap-0 md:px-2">
-            {product.images.slice(1, 5).map((image, index) => (
+          <div className="grid grid-cols-2 lg:grid lg:grid-cols-1 lg:gap-y-4 px-2 gap-4 md:px-2">
+            {product.images.slice(2, 5).map((image, index) => (
               <div
                 key={index}
                 className="lg:aspect-h-2 lg:aspect-w-3 lg:overflow-hidden lg:rounded-lg "
@@ -39,9 +53,13 @@ export default function ProductPage({ product }) {
 
           {/* Product info */}
           <div className="p-4 lg:p-8 border">
-            <h1 className="text-3xl font-semibold text-gray-900">{product.title}</h1>
+            <h1 className="text-3xl font-semibold text-gray-900">
+              {product.title}
+            </h1>
             <div className="mt-6">
-              <h2 className="text-xl font-semibold text-gray-900">Description</h2>
+              <h2 className="text-xl font-semibold text-gray-900">
+                Description
+              </h2>
               <p className="mt-2 text-gray-700">{product.description}</p>
             </div>
 
@@ -76,12 +94,19 @@ export default function ProductPage({ product }) {
               </div>
 
               <div>
-                <label className="text-text font-semibold">Colors</label>
+                <label className="text-text font-semibold">Stock</label>
                 <p className="mt-2 text-accent list-disc list-inside">
-                  {product?.colors}
+                  {product?.stock}
                 </p>
               </div>
             </div>
+
+            <div>
+                <label className="text-text font-semibold">Product Id</label>
+                <p className="mt-2 text-accent list-disc list-inside">
+                  {product?.productId}
+                </p>
+              </div>
 
             <div className="mt-4 flex justify-between items-center">
               <h2 className="text-xl font-semibold text-gray-900">Price</h2>
@@ -92,16 +117,14 @@ export default function ProductPage({ product }) {
             <div className="w-full">
               <button
                 className="bg-primary text-white py-2 px-4 mt-4 rounded-md hover:bg-primary-dark w-full"
-                onClick={() => {addProduct(product._id);
-                  toast.success('Item added to cart!!')}}
+                onClick={() => {
+                  addProduct(product._id);
+                  toast.success("Item added to cart!!");
+                }}
               >
                 Add to Cart
               </button>
             </div>
-
-
-
-
           </div>
         </div>
       </section>
@@ -110,7 +133,6 @@ export default function ProductPage({ product }) {
 
   return <p>Product not found.</p>;
 }
-
 
 export async function getServerSideProps(context) {
   await mongooseConnect();

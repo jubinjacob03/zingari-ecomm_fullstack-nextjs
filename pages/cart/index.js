@@ -80,7 +80,7 @@ export default function Cart() {
     if (response.data.url) {
       window.location = response.data.url
     } else {
-      toast.error('An error occured!!')
+      toast.error('An error ocurred !!')
     }
   }
 
@@ -178,8 +178,8 @@ export default function Cart() {
                         </div>
 
                         <strike className="flex justify-between">
-                          <dt>VAT</dt>
-                          <dd>Rs. {formatPrice(total / 1000)}</dd>
+                          <dt>Delivery Charges</dt>
+                          <dd>Rs. {formatPrice(total * 0.2)}</dd>
                         </strike>
 
                         <div className="flex justify-between !text-base font-medium">
@@ -202,7 +202,7 @@ export default function Cart() {
                             class="shrink-0 rounded-full border border-orange-600 bg-white p-2 group-active:border-orange-500"
                           >
                             <svg
-                              class="h-4 w-4 rtl:rotate-180"
+                              class="h-4 w-4"
                               xmlns="http://www.w3.org/2000/svg"
                               fill="none"
                               viewBox="0 0 24 24"
@@ -257,7 +257,7 @@ export default function Cart() {
                     />
 
                   </div>
-                  <div class="col-span-6">
+                  <div class="col-span-4">
                     <label class="mb-1 block text-sm font-medium text-text">City</label>
                     <input type="text" name="city" class="block w-full rounded-md p-3 border border-gray-300 shadow-sm focus:border-primary-400 focus:ring focus:ring-primary-200 focus:ring-opacity-50 disabled:cursor-not-allowed disabled:bg-gray-50 disabled:text-gray-500" placeholder=""
                       value={city}
@@ -273,7 +273,7 @@ export default function Cart() {
                       required
                     />
                   </div>
-                  <div class="col-span-2">
+                  <div class="col-span-4">
                     <label class="mb-1 block text-sm font-medium text-text">Zip</label>
                     <input type="text" name="zip" class="block w-full rounded-md p-3 border border-gray-300 shadow-sm focus:border-primary-400 focus:ring focus:ring-primary-200 focus:ring-opacity-50 disabled:cursor-not-allowed disabled:bg-gray-50 disabled:text-gray-500" placeholder=""
                       value={zip}
