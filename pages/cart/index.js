@@ -14,6 +14,7 @@ export default function Cart() {
   const [city, setCity] = useState('');
   const [state, setState] = useState('');
   const [zip, setZip] = useState('');
+  const [phone, setPhone] = useState('');
   const [loading, setLoading] = useState(true);
   const { data: session } = useSession();
   const [isSuccess, setIsSuccess] = useState(false)
@@ -74,7 +75,7 @@ export default function Cart() {
 
   async function stripeCheckout() {
     const response = await axios.post('/api/checkout', {
-      email: session.user.email, name: session.user.name, address, state, zip, city, cartProducts
+      email: session.user.email, name: session.user.name, phone, address, state, zip, city, cartProducts
     });
 
     if (response.data.url) {
@@ -179,7 +180,7 @@ export default function Cart() {
 
                         <strike className="flex justify-between">
                           <dt>Delivery Charges</dt>
-                          <dd>Rs. {formatPrice(total * 0.2)}</dd>
+                          <dd>Rs. {formatPrice(Number((total * 0.2).toFixed(3)))}</dd>
                         </strike>
 
                         <div className="flex justify-between !text-base font-medium">
@@ -229,10 +230,10 @@ export default function Cart() {
         ) : (
           <div className="md:1/3 mt-16 md:mt-6">
             <header className="text-start flex flex-col w-full">
-              <h1 className="text-xl font-bold text-gray-900 sm:text-3xl">Shipping details</h1>
-              <p className="mt-2 text-text text-lg">We use your account details for shipping.</p>
+              <h1 className="text-xl font-bold text-gray-900 sm:text-3xl">Delivery details</h1>
+              <p className="mt-2 text-text text-lg">We use your account details for delivery.</p>
             </header>
-            <div class="mx-auto max-w-xl p-4 border shadow-xl h-[400px] my-3">
+            <div class="mx-auto max-w-xl p-4 border shadow-xl my-3">
               <div class="space-y-5">
                 <div class="grid grid-cols-12 gap-5">
                   <div class="col-span-6">
@@ -250,12 +251,26 @@ export default function Cart() {
                   </div>
                   <div class="col-span-12">
                     <label class="mb-1 block text-sm font-medium text-text">Address</label>
-                    <input type="text" name="address" class="block w-full rounded-md p-3 border border-gray-300 shadow-sm focus:border-primary-400 focus:ring focus:ring-primary-200 focus:ring-opacity-50 disabled:cursor-not-allowed disabled:bg-gray-50 disabled:text-gray-500" placeholder="1864 Main Street"
+                    <textarea type="text" name="address" class="block w-full rounded-md p-3 border border-gray-300 shadow-sm focus:border-primary-400 focus:ring focus:ring-primary-200 focus:ring-opacity-50 disabled:cursor-not-allowed disabled:bg-gray-50 disabled:text-gray-500" placeholder="Enter your delivery address"
                       value={address}
                       onChange={ev => setAddress(ev.target.value)}
                       required
+                      rows={2}
                     />
 
+                  </div>
+                  <div class="col-span-12">
+                    <label class="mb-1 block text-sm font-medium text-text">Phone</label>
+                    <input type="tel" name="phone" class="block w-full rounded-md p-3 border border-gray-300 shadow-sm focus:border-primary-400 focus:ring focus:ring-primary-200 focus:ring-opacity-50 disabled:cursor-not-allowed disabled:bg-gray-50 disabled:text-gray-500" placeholder="Enter your phone number"
+                      value={phone}
+                      onChange={ev => {
+                        const value = ev.target.value;
+                        if (/^[0-9+\- ]*$/.test(value)) {
+                          setPhone(value);
+                        }
+                      }}
+                      required
+                    />
                   </div>
                   <div class="col-span-4">
                     <label class="mb-1 block text-sm font-medium text-text">City</label>
@@ -304,7 +319,7 @@ export default function Cart() {
     <div className="grid h-screen px-4 bg-white place-content-center">
       <div className="text-center">
 
-        <p className="mt-4 text-text text-2xl">You should sign Up to view cart Items</p>
+        <p className="mt-4 text-text text-2xl">You should Sign In to view cart Items</p>
 
         <button
           onClick={() => signIn('google')}

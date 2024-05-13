@@ -13,7 +13,7 @@ export default async function handler(req, res) {
   // Test Card:  4000 0035 6000 0008
 
   const country ='India';
-  const { email, name, address, city, state, zip, cartProducts } = req.body;
+  const { email, name, phone , address, city, state, zip, cartProducts } = req.body;
 
   await mongooseConnect();
 
@@ -44,8 +44,9 @@ export default async function handler(req, res) {
   }
 
   const orderDoc = await Order.create({
-    line_items, email, name, address, city, country, state, zip, paid: false
+    line_items, email, name, phone, address, city, country, state, zip, paid: false
   })
+  console.log(orderDoc);
 
   const session = await stripe.checkout.sessions.create({
     line_items,
