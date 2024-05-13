@@ -133,17 +133,6 @@ export default function Header() {
                         Categories
                       </Link>
                     </li>
-
-                    <li>
-                      {session && (
-                        <button
-                          className="text-accent transition hover:text-accent/75"
-                          onClick={logout}
-                        >
-                          Sign out
-                        </button>
-                      )}
-                    </li>
                   </ul>
                 </nav>
               </div>
