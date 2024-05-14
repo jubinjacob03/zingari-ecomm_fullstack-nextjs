@@ -26,6 +26,7 @@ export default function Cart() {
       axios.post('/api/cart', { ids: cartProducts })
         .then(response => {
           setProducts(response.data);
+          console.log("Products:", response.data)
           setLoading(false)
         })
     } else {
@@ -56,8 +57,8 @@ export default function Cart() {
     subTotal = total + total / 1000;
   }
 
-  function increaseProduct(id) {
-    addProduct(id);
+  function increaseProduct(id, selectedSize) {
+    addProduct(id, selectedSize);
   }
 
   function decreaseProduct(id) {
@@ -126,7 +127,7 @@ export default function Cart() {
                               <p>Rs .{cartProducts.filter(id => id === product._id).length * product.price}</p>
                             </dl>
                           </div>
-
+                          {/* {console.log("Selected Size:", product.selectedSize)} */}
                           <div>
                             <label htmlFor="Quantity" className="sr-only"> Quantity </label>
 
