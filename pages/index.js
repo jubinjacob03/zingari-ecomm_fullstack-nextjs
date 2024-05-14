@@ -7,7 +7,7 @@ import Collection from "./components/Collection";
 export default function Home({ featuredProduct, newProducts, collectionProduct1, allProducts }) {
   return (
     <main
-      className={`min-h-screen p-4 bg-background `}
+      className={`min-h-screen p-6 bg-background `}
     >
 
       <Hero product={featuredProduct} />
