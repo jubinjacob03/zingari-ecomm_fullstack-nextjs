@@ -20,6 +20,7 @@ export default function CategoryPage({ categoryProducts }) {
   const [loading, setLoading] = useState(true);
   const [filteredProducts, setFilteredProducts] = useState(categoryProducts);
   const [categoryName, setCategoryName] = useState("");
+  const selectedSize = "M"
 
   useEffect(() => {
     setFilteredProducts(categoryProducts);
@@ -87,7 +88,7 @@ export default function CategoryPage({ categoryProducts }) {
                         <div className="col-span-12 text-center w-full mt-3">
                           <button
                             onClick={() => {
-                              addProduct(product._id);
+                              addProduct(product._id, selectedSize);
                               toast.success("Item added to cart!");
                             }}
                             className="disabled block rounded bg-secondary px-5 py-3 text-md text-text w-full transition hover:bg-primary hover:text-white"

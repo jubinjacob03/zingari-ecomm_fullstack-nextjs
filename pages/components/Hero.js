@@ -3,9 +3,10 @@ import { useContext } from "react";
 import { CartContext } from "../../lib/CartContext";
 
 export default function Hero({ product }) {
+  const selectedSize = "M"
   const { addProduct } = useContext(CartContext);
   function addItemToCart() {
-    addProduct(product._id);
+    addProduct(product._id, selectedSize);
   }
   if (product) {
     return (

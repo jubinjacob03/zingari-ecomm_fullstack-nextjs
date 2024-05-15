@@ -42,12 +42,12 @@ export default function Cart() {
                   p._id === product._id && p.selectedSize === entry.selectedSize
               );
               if (existingProduct) {
-                existingProduct.quantity += entry.quantity;
+                existingProduct.quantity += 1;
               } else {
                 updatedProducts.push({
                   ...product,
                   selectedSize: entry.selectedSize,
-                  quantity: entry.quantity,
+                  quantity: 1,
                 });
               }
             });
@@ -88,7 +88,7 @@ export default function Cart() {
   }
   function deleteCart(id) {
     clearCart();
-    setProducts([]);
+    setLoading(false);
     toast.success("Cart cleared!!");
   }
 

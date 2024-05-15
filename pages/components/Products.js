@@ -10,6 +10,7 @@ const formatPrice = (price) => {
 
 export default function Products({ products }) {
   const { addProduct } = useContext(CartContext)
+  const selectedSize = "M"
 
   return (
     <div className="bg-white">
@@ -48,7 +49,7 @@ export default function Products({ products }) {
                       <p className="tracking-wide text-primary">Rs. {formatPrice(product.price)}</p>
 
 
-                      <button onClick={() => {addProduct(product._id);
+                      <button onClick={() => {addProduct(product._id, selectedSize);
                          toast.success('Item added to cart!!')}} type="button" class="flex items-center divide-x rounded-lg border border-primary bg-white text-center text-md font-medium text-secondary-700 shadow-sm hover:bg-gray-100">
                         <div class="flex items-center space-x-2 py-2.5 px-3">
                           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
