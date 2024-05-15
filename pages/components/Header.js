@@ -58,7 +58,7 @@ export default function Header() {
   return (
     <>
       <header className="bg-white sticky top-0 z-40 w-full px-2 md:px-4">
-        <div className="mx-auto flex h-[5.5rem] max-w-screen-2xl items-center gap-8 border-b border-primary border-opacity-40">
+        <div className="mx-auto flex h-[5.5rem] max-w-screen-2xl items-center gap-14 md:gap-12 border-b border-primary border-opacity-40">
           <div className="block mr-0 md:hidden">
             <button
               onClick={toggleMobileNav}
