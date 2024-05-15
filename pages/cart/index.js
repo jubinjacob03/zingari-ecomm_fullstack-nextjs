@@ -84,12 +84,14 @@ export default function Cart() {
 
   function decreaseProduct(id, selectedSize) {
     removeProduct(id, selectedSize);
-    toast.success("Removed product!!");
+    toast.success("Removed product !!");
   }
+
   function deleteCart(id) {
     clearCart();
     setLoading(false);
-    toast.success("Cart cleared!!");
+    setProducts([]);
+    toast.success("Cart cleared !!");
   }
 
   const formatPrice = (price) => {

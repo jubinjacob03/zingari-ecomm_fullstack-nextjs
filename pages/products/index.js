@@ -98,7 +98,7 @@ export default function Products({ allProducts }) {
                             <button
                               onClick={() => {
                                 addProduct(product._id, selectedSize);
-                                toast.success("Item added to cart!");
+                                toast.success("Item added to cart !!");
                               }}
                               className="disabled block rounded bg-secondary px-5 py-3 text-md text-text w-full transition hover:bg-primary hover:text-white"
                             >
