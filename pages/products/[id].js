@@ -17,37 +17,31 @@ export default function ProductPage({ product }) {
       <section className="mt-20 md:mt-6 mb-5 ">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           {/* Image section */}
-          <div className="grid grid-cols-2 lg:grid lg:grid-cols-1 lg:gap-y-4 px-2 gap-4 md:px-2 md:grid-cols-1">
-            <div className="lg:aspect-h-2 lg:aspect-w-2 lg:rounded-lg overflow-hidden px-4 md:px-2">
+          <div className="flex flex-col md:grid md:grid-cols-2 lg:grid-cols-1 lg:gap-y-4 px-2 gap-4">
+            <div className="lg:rounded-lg overflow-hidden px-4 md:px-2">
               <img
                 src={product.images[0]}
                 alt={product.images[0]}
-                className="w-full h-full md:h-[90vh] object-cover object-center border border-primary rounded-lg"
+                className="w-full h-full object-cover object-center border border-primary rounded-lg"
               />
             </div>
             {product.images.slice(1, 2).map((image, index) => (
-              <div
-                key={index}
-                className="lg:aspect-h-2 lg:aspect-w-3 lg:overflow-hidden lg:rounded-lg "
-              >
+              <div key={index} className="lg:overflow-hidden lg:rounded-lg ">
                 <img
                   src={image}
                   alt={image}
-                  className="w-full h-full md:h-[44vh] object-cover object-center border rounded-lg border-secondary p-4"
+                  className="w-full h-full object-cover object-center border rounded-lg border-secondary p-4"
                 />
               </div>
             ))}
           </div>
-          <div className="grid grid-cols-2 lg:grid lg:grid-cols-1 lg:gap-y-4 px-2 gap-4 md:px-2">
+          <div className="flex flex-col md:grid md:grid-cols-2 lg:grid lg:grid-cols-1 lg:gap-y-4 px-2 gap-4 md:px-2">
             {product.images.slice(2, 5).map((image, index) => (
-              <div
-                key={index}
-                className="lg:aspect-h-2 lg:aspect-w-3 lg:overflow-hidden lg:rounded-lg "
-              >
+              <div key={index} className="lg:overflow-hidden lg:rounded-lg ">
                 <img
                   src={image}
                   alt={image}
-                  className="w-full h-full md:h-[44vh] object-cover object-center border rounded-lg border-secondary p-4"
+                  className="w-full h-full object-contain object-center border rounded-lg border-secondary p-4"
                 />
               </div>
             ))}
