@@ -182,7 +182,7 @@ export default function Cart() {
                               <div className="flex items-center gap-1">
                                 <button
                                   type="button"
-                                  className="w-10 h-10 leading-10 text-text transition hover:opacity-75 border "
+                                  className="w-10 h-10 leading-10 text-text transition hover:opacity-75 border rounded-md "
                                   onClick={() =>
                                     decreaseProduct(
                                       product._id,
@@ -209,7 +209,7 @@ export default function Cart() {
 
                                 <button
                                   type="button"
-                                  className="w-10 h-10 leading-10 text-text transition hover:opacity-75 border"
+                                  className="w-10 h-10 leading-10 text-text transition hover:opacity-75 border rounded-md"
                                   onClick={() =>
                                     increaseProduct(
                                       product._id,
@@ -401,7 +401,7 @@ export default function Cart() {
                     <div class="col-span-12 text-center w-full">
                       <button
                         onClick={stripeCheckout}
-                        className="disabled block rounded bg-secondary px-5 py-3 text-md text-text transition hover:bg-purple-300 w-full"
+                        className="disabled block bg-secondary px-5 py-3 text-md text-text transition hover:bg-primary hover:text-white w-full rounded-lg"
                       >
                         Checkout
                       </button>
@@ -426,7 +426,7 @@ export default function Cart() {
 
           <button
             onClick={() => signIn("google")}
-            className="inline-block px-5 py-3 mt-6 text-sm font-medium text-text bg-primary rounded hover:bg-primary focus:outline-none focus:ring"
+            className="inline-block px-5 py-3 mt-6 text-sm font-medium text-white bg-secondary rounded-md hover:bg-primary focus:outline-none focus:ring"
           >
             Login / Register
           </button>

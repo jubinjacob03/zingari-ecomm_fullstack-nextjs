@@ -62,7 +62,7 @@ export default function Header() {
           <div className="block mr-0 md:hidden">
             <button
               onClick={toggleMobileNav}
-              className="rounded bg-gray-100 p-2 text-gray-600 transition hover:text-gray-600/75"
+              className="rounded-md bg-gray-100 p-2 text-gray-600 transition hover:text-gray-600/75"
             >
               {isMobileNavOpen ? (
                 <svg

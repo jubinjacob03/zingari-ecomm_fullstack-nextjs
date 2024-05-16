@@ -20,7 +20,7 @@ export default function CategoryPage({ categoryProducts }) {
   const [loading, setLoading] = useState(true);
   const [filteredProducts, setFilteredProducts] = useState(categoryProducts);
   const [categoryName, setCategoryName] = useState("");
-  const selectedSize = "M"
+  const selectedSize = "M";
 
   useEffect(() => {
     setFilteredProducts(categoryProducts);
@@ -56,52 +56,58 @@ export default function CategoryPage({ categoryProducts }) {
             </h2>
           </div>
           <div className="grid grid-cols-2 gap-x-3 md:gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 xl:gap-x-8 px-8 py-8">
-            {filteredProducts.map((product) => (
-              <div key={product._id}>
-                <div className="group block overflow-hidden border border-accent rounded-xl border-opacity-10">
-                  <div className="">
-                    <div className="relative md:h-[300px] h-[200px]">
-                      <img
-                        src={product.images[0]}
-                        alt=""
-                        className="absolute inset-0 h-full w-full object-contain opacity-100 group-hover:opacity-0"
-                      />
-                      <img
-                        src={product.images[1]}
-                        alt=""
-                        className="absolute inset-0 h-full w-full object-contain opacity-0 group-hover:opacity-100"
-                      />
-                    </div>
+            {filteredProducts.length === 0 ? (
+               <p className="col-span-full text-center mt-20 text-xl">
+                Sorry, No products available at the moment.
+              </p>
+            ) : (
+              filteredProducts.map((product) => (
+                <div key={product._id}>
+                  <div className="group block overflow-hidden border border-accent rounded-xl border-opacity-10">
+                    <div className="">
+                      <div className="relative md:h-[300px] h-[200px]">
+                        <img
+                          src={product.images[0]}
+                          alt=""
+                          className="absolute inset-0 h-full w-full object-contain opacity-100 group-hover:opacity-0"
+                        />
+                        <img
+                          src={product.images[1]}
+                          alt=""
+                          className="absolute inset-0 h-full w-full object-contain opacity-0 group-hover:opacity-100"
+                        />
+                      </div>
 
-                    <div className="relative p-3 border-t">
-                      <Link href={"/products/" + product._id}>
-                        <h3 className="text-md text-gray-700 group-hover:underline group-hover:underline-offset-4 truncate">
-                          {product.title}
-                        </h3>
-                      </Link>
+                      <div className="relative p-3 border-t">
+                        <Link href={"/products/" + product._id}>
+                          <h3 className="text-md text-gray-700 group-hover:underline group-hover:underline-offset-4 truncate">
+                            {product.title}
+                          </h3>
+                        </Link>
 
-                      <div className="mt-1.5 flex flex-col items-center justify-between text-text">
-                        <p className="tracking-wide text-primary text-sm md:text-md">
-                          Rs. {formatPrice(product.price)}
-                        </p>
+                        <div className="mt-1.5 flex flex-col items-center justify-between text-text">
+                          <p className="tracking-wide text-primary text-sm md:text-md">
+                            Rs. {formatPrice(product.price)}
+                          </p>
 
-                        <div className="col-span-12 text-center w-full mt-3">
-                          <button
-                            onClick={() => {
-                              addProduct(product._id, selectedSize);
-                              toast.success("Item added to cart !!");
-                            }}
-                            className="disabled block rounded bg-secondary px-5 py-3 text-md text-text w-full transition hover:bg-primary hover:text-white"
-                          >
-                            Add to cart
-                          </button>
+                          <div className="col-span-12 text-center w-full mt-3">
+                            <button
+                              onClick={() => {
+                                addProduct(product._id, selectedSize);
+                                toast.success("Item added to cart !!");
+                              }}
+                              className="disabled block rounded-md bg-secondary px-5 py-3 text-md text-text w-full transition hover:bg-primary hover:text-white"
+                            >
+                              Add to cart
+                            </button>
+                          </div>
                         </div>
                       </div>
                     </div>
                   </div>
                 </div>
-              </div>
-            ))}
+              ))
+            )}
           </div>
         </div>
       )}

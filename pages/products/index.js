@@ -100,7 +100,7 @@ export default function Products({ allProducts }) {
                                 addProduct(product._id, selectedSize);
                                 toast.success("Item added to cart !!");
                               }}
-                              className="disabled block rounded bg-secondary px-5 py-3 text-md text-text w-full transition hover:bg-primary hover:text-white"
+                              className="disabled block rounded bg-secondary px-5 py-3 text-md w-full transition hover:bg-primary text-white"
                             >
                               Add to cart
                             </button>
