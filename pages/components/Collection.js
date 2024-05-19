@@ -50,7 +50,7 @@ export default function Collection({ product }) {
                       <img
                         src={product.images[0]}
                         alt=""
-                        className="object-cover w-full rounded aspect-square"
+                        className="object-cover w-full rounded"
                       />
                     </div>
                   </li>
@@ -60,7 +60,7 @@ export default function Collection({ product }) {
                       <img
                         src={product.images[1]}
                         alt=""
-                        className="object-cover w-full rounded aspect-square"
+                        className="object-cover w-full rounded"
                       />
                     </div>
                   </li>
