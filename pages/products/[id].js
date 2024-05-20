@@ -91,7 +91,7 @@ export default function ProductPage({ product }) {
               <div>
                 <label className="text-text font-semibold">Stock</label>
                 <p className="mt-2 text-accent list-disc list-inside">
-                  {product?.stock}
+                  {product?.stock === 0 ? "Out of Stock" : product?.stock}
                 </p>
               </div>
             </div>
@@ -142,11 +142,16 @@ export default function ProductPage({ product }) {
             </div>
             <div className="w-full">
               <button
-                className="bg-secondary text-white py-2 px-4 mt-4 rounded-md hover:bg-primary w-full"
+                className={`py-2 px-4 mt-4 rounded-md w-full ${
+                  product?.stock === 0
+                    ? "bg-red-200 text-gray-100 cursor-not-allowed"
+                    : "bg-secondary text-white hover:bg-primary"
+                }`}
                 onClick={() => {
                   addProduct(product._id, selectedSize);
                   toast.success("Item added to cart !!");
                 }}
+                disabled={product?.stock === 0 ? true : false}
               >
                 Add to Cart
               </button>

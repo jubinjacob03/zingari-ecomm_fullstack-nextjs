@@ -15,7 +15,7 @@ export default function Products({ allProducts }) {
   const { addProduct } = useContext(CartContext);
 
   const [loading, setLoading] = useState(true);
-  const selectedSize = "M"
+  const selectedSize = "M";
   const [searchQuery, setSearchQuery] = useState("");
   const [filteredProducts, setFilteredProducts] = useState(allProducts);
 
@@ -84,7 +84,7 @@ export default function Products({ allProducts }) {
 
                       <div className="relative p-3 border-t">
                         <Link href={"/products/" + product._id}>
-                          <h3 className="text-md text-gray-700 group-hover:underline group-hover:underline-offset-4 truncate">
+                          <h3 className="text-md text-gray-700 group-hover:underline group-hover:underline-offset-4 truncate text-center">
                             {product.title}
                           </h3>
                         </Link>
@@ -100,7 +100,12 @@ export default function Products({ allProducts }) {
                                 addProduct(product._id, selectedSize);
                                 toast.success("Item added to cart !!");
                               }}
-                              className="disabled block rounded bg-secondary px-5 py-3 text-md w-full transition hover:bg-primary text-white"
+                              className={`block rounded px-5 py-3 text-md w-full transition ${
+                                product?.stock === 0
+                                  ? "bg-secondary-disabled text-gray-100 cursor-not-allowed"
+                                  : "bg-secondary text-white hover:bg-primary"
+                              }`}
+                              disabled={product.stock === 0}
                             >
                               Add to cart
                             </button>

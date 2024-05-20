@@ -5,6 +5,7 @@ const ProductSchema = new Schema({
   description: {type:String, required:true},
   price: {type: Number, required: true},
   images: [{type: String}],
+  stock: {type: Number, required: true},
   category: {type:mongoose.Types.ObjectId, ref:'Category'},
 });
 
