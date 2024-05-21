@@ -19,9 +19,6 @@ export default async function handler(req, res) {
             console.log(err);
           }
         });
-        // Handle successful checkout session completion here
-
-        // Order processing all that stuff goes here
 
         console.log("Checkout session completed:", event.data.object);
         // You can retrieve session details from event.data.object and handle accordingly
