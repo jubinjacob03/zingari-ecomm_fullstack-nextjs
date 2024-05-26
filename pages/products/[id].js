@@ -4,15 +4,12 @@ import { mongooseConnect } from "@/lib/mongoose";
 import { Product } from "@/models/Product";
 import { useContext } from "react";
 import toast from "react-hot-toast";
-
 import { Swiper, SwiperSlide } from "swiper/react";
-
-// Import Swiper styles
+import { Pagination } from "swiper/modules";
+import dynamic from "next/dynamic";
 import "swiper/css";
 import "swiper/css/pagination";
-
-// import required modules
-import { Pagination } from "swiper/modules";
+const Swiper = dynamic(() => import("swiper/react"), { ssr: false });
 
 const formatPrice = (price) => {
   return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
@@ -26,7 +23,7 @@ export default function ProductPage({ product }) {
       <section className="mt-20 md:mt-6 mb-5 ">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           {/* Image section */}
-          {/* <div className="flex flex-col md:grid md:grid-cols-2 lg:grid-cols-1 lg:gap-y-4 px-2 gap-4">
+          <div className=" hidden md:grid md:grid-cols-2 lg:grid-cols-1 lg:gap-y-4 px-2 gap-4">
             <div className="lg:rounded-lg overflow-hidden px-4 md:px-2">
               <img
                 src={product.images[0]}
@@ -44,7 +41,7 @@ export default function ProductPage({ product }) {
               </div>
             ))}
           </div>
-          <div className="flex flex-col md:grid md:grid-cols-2 lg:grid lg:grid-cols-1 lg:gap-y-4 px-2 gap-4 md:px-2">
+          <div className="hidden md:grid md:grid-cols-2 lg:grid lg:grid-cols-1 lg:gap-y-4 px-2 gap-4 md:px-2">
             {product.images.slice(2, 5).map((image, index) => (
               <div key={index} className="lg:overflow-hidden lg:rounded-lg ">
                 <img
@@ -54,8 +51,9 @@ export default function ProductPage({ product }) {
                 />
               </div>
             ))}
-          </div> */}
-          <div>
+          </div>
+          {/*Mobile View*/}
+          <div className="md:hidden px-2 ">
             <Swiper
               pagination={true}
               modules={[Pagination]}
@@ -66,7 +64,7 @@ export default function ProductPage({ product }) {
                   <img
                     src={image}
                     alt={`Slide ${index}`}
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-contain object-center border rounded-lg border-secondary p-2"
                   />
                 </SwiperSlide>
               ))}
@@ -192,12 +190,20 @@ export default function ProductPage({ product }) {
 }
 
 export async function getServerSideProps(context) {
-  await mongooseConnect();
-  const { id } = context.query;
-  const product = await Product.findById(id);
-  return {
-    props: {
-      product: JSON.parse(JSON.stringify(product)),
-    },
-  };
+  try {
+    await mongooseConnect();
+    const { id } = context.query;
+    const product = await Product.findById(id);
+    return {
+      props: {
+        product: JSON.parse(JSON.stringify(product)),
+      },
+    };
+  } catch (error) {
+    // Handle error
+    console.error(error);
+    return {
+      notFound: true,
+    };
+  }
 }
