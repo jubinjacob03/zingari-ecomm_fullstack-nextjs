@@ -4,12 +4,14 @@ import { mongooseConnect } from "@/lib/mongoose";
 import { Product } from "@/models/Product";
 import { useContext } from "react";
 import toast from "react-hot-toast";
-import { Swiper, SwiperSlide } from "swiper/react";
+import { SwiperSlide } from "swiper/react";
 import { Pagination } from "swiper/modules";
 import dynamic from "next/dynamic";
 import "swiper/css";
 import "swiper/css/pagination";
-const Swiper = dynamic(() => import("swiper/react"), { ssr: false });
+const Swiper = dynamic(() => import("swiper/react").then((mod) => mod.Swiper), {
+  ssr: false,
+});
 
 const formatPrice = (price) => {
   return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
