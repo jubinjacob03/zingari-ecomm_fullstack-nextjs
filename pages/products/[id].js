@@ -5,6 +5,15 @@ import { Product } from "@/models/Product";
 import { useContext } from "react";
 import toast from "react-hot-toast";
 
+import { Swiper, SwiperSlide } from "swiper/react";
+
+// Import Swiper styles
+import "swiper/css";
+import "swiper/css/pagination";
+
+// import required modules
+import { Pagination } from "swiper/modules";
+
 const formatPrice = (price) => {
   return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 };
@@ -17,7 +26,7 @@ export default function ProductPage({ product }) {
       <section className="mt-20 md:mt-6 mb-5 ">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           {/* Image section */}
-          <div className="flex flex-col md:grid md:grid-cols-2 lg:grid-cols-1 lg:gap-y-4 px-2 gap-4">
+          {/* <div className="flex flex-col md:grid md:grid-cols-2 lg:grid-cols-1 lg:gap-y-4 px-2 gap-4">
             <div className="lg:rounded-lg overflow-hidden px-4 md:px-2">
               <img
                 src={product.images[0]}
@@ -45,6 +54,23 @@ export default function ProductPage({ product }) {
                 />
               </div>
             ))}
+          </div> */}
+          <div>
+            <Swiper
+              pagination={true}
+              modules={[Pagination]}
+              className="mySwiper"
+            >
+              {product.images.map((image, index) => (
+                <SwiperSlide key={index}>
+                  <img
+                    src={image}
+                    alt={`Slide ${index}`}
+                    className="w-full h-full object-cover"
+                  />
+                </SwiperSlide>
+              ))}
+            </Swiper>
           </div>
 
           {/* Product info */}
