@@ -69,18 +69,20 @@ export default function Products({ allProducts }) {
                 <div key={product._id}>
                   <div className="group block overflow-hidden border border-accent rounded-xl border-opacity-10">
                     <div className="">
-                      <div className="relative md:h-[300px] h-[200px]">
-                        <img
-                          src={product.images[0]}
-                          alt=""
-                          className="absolute inset-0 h-full w-full object-contain opacity-100 group-hover:opacity-0"
-                        />
-                        <img
-                          src={product.images[1]}
-                          alt=""
-                          className="absolute inset-0 h-full w-full object-contain opacity-0 group-hover:opacity-100"
-                        />
-                      </div>
+                      <Link href={"/products/" + product._id}>
+                        <div className="relative md:h-[300px] h-[200px]">
+                          <img
+                            src={product.images[0]}
+                            alt=""
+                            className="absolute inset-0 h-full w-full object-contain opacity-100 group-hover:opacity-0"
+                          />
+                          <img
+                            src={product.images[1]}
+                            alt=""
+                            className="absolute inset-0 h-full w-full object-contain opacity-0 group-hover:opacity-100"
+                          />
+                        </div>
+                      </Link>
 
                       <div className="relative p-3 border-t">
                         <Link href={"/products/" + product._id}>
@@ -91,7 +93,9 @@ export default function Products({ allProducts }) {
 
                         <div className="mt-1.5 flex flex-col items-center justify-between text-text">
                           <p className="tracking-wide text-primary text-sm md:text-md">
-                          {product.stock === 0 ? "OUT OF STOCK" : `Rs. ${formatPrice(product.price)}`}
+                            {product.stock === 0
+                              ? "OUT OF STOCK"
+                              : `Rs. ${formatPrice(product.price)}`}
                           </p>
 
                           <div className="col-span-12 text-center w-full mt-3">

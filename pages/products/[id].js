@@ -22,7 +22,7 @@ export default function ProductPage({ product }) {
   const [selectedSize, setSelectedSize] = useState("M");
   if (product) {
     return (
-      <section className="mt-20 md:mt-6 mb-5 ">
+      <section className="mt-20 md:mt-6 mb-5 bg-background ">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           {/* Image section */}
           <div className=" hidden md:grid md:grid-cols-2 lg:grid-cols-1 lg:gap-y-4 px-2 gap-4">
