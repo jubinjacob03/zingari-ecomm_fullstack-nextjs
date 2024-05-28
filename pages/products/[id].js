@@ -160,6 +160,30 @@ export default function ProductPage({ product }) {
                 ))}
               </fieldset>
             </div>
+            {/*Size Chart Image*/}
+            <div className="mt-4">
+              <Swiper
+                pagination={true}
+                modules={[Pagination]}
+                spaceBetween={50}
+                slidesPerView={1}
+              >
+                <SwiperSlide>
+                  <img
+                    src="https://res.cloudinary.com/dusien6wm/image/upload/v1716920346/Cream_Minimalist_Simple_Size_Chart_Instagram_Post_20240527_221644_0000_alhllu.png"
+                    alt="Size Chart"
+                    className="w-full h-full object-contain object-center border rounded-lg p-2 mb-8"
+                  />
+                </SwiperSlide>
+                <SwiperSlide>
+                  <img
+                    src="https://res.cloudinary.com/dusien6wm/image/upload/v1716920346/Cream_Minimalist_Simple_Size_Chart_Instagram_Post_20240527_224632_0000_eaydxb.png"
+                    alt="Size Chart"
+                    className="w-full h-full object-contain object-center border rounded-lg p-2 mb-8"
+                  />
+                </SwiperSlide>
+              </Swiper>
+            </div>
             <div className="mt-4 flex justify-between items-center">
               <h2 className="text-xl font-semibold text-gray-900">Price</h2>
               <p className="mt-2 text-primary font-semibold text-lg">
