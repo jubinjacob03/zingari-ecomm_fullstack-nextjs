@@ -10,7 +10,7 @@ const formatPrice = (price) => {
   return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 };
 
-const itemsPerPage = 15;
+const itemsPerPage = 18;
 
 export default function Products({ allProducts }) {
   const { addProduct } = useContext(CartContext);
@@ -72,7 +72,7 @@ export default function Products({ allProducts }) {
             </p>
           ) : (
             <>
-              <div className="grid grid-cols-2 gap-x-3 md:gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 xl:gap-x-8 px-2">
+              <div className="grid grid-cols-2 gap-x-3 md:gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-6 xl:gap-x-8 px-2">
                 {paginatedProducts.map((product) => (
                   <div key={product._id}>
                     <div className="group block overflow-hidden border border-accent rounded-xl border-opacity-10">
