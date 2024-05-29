@@ -170,6 +170,20 @@ export default function ProductPage({ product }) {
               >
                 <SwiperSlide>
                   <img
+                    src="https://res.cloudinary.com/dusien6wm/image/upload/v1717006199/Pastel_minimalist_Size_Chart_Instagram_Post_20240529_012848_0000_t4vzgo.png"
+                    alt="Size Chart"
+                    className="w-full h-full object-contain object-center border rounded-lg p-2 mb-8"
+                  />
+                </SwiperSlide>
+                <SwiperSlide>
+                  <img
+                    src="https://res.cloudinary.com/dusien6wm/image/upload/v1717006199/Pastel_minimalist_Size_Chart_Instagram_Post_20240529_012624_0000_j6r0qz.png"
+                    alt="Size Chart"
+                    className="w-full h-full object-contain object-center border rounded-lg p-2 mb-8"
+                  />
+                </SwiperSlide>
+                <SwiperSlide>
+                  <img
                     src="https://res.cloudinary.com/dusien6wm/image/upload/v1716920346/Cream_Minimalist_Simple_Size_Chart_Instagram_Post_20240527_221644_0000_alhllu.png"
                     alt="Size Chart"
                     className="w-full h-full object-contain object-center border rounded-lg p-2 mb-8"
