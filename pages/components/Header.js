@@ -42,7 +42,7 @@ export default function Header() {
   }
 
   const handleCategoryChange = (e) => {
-    const [categoryId, categoryName] = e.target.value.split(':');
+    const [categoryId, categoryName] = e.target.value.split(":");
     if (e.target.value !== "") {
       setSelectedCategory(`${categoryId}:${categoryName}`);
       setIsMobileNavOpen(false);
@@ -125,23 +125,29 @@ export default function Header() {
                     </li>
 
                     <li>
-                    <select
-                    className={`text-accent transition hover:text-accent/75 hs-dropdown-toggle py-3 px-4 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-gray-200 bg-white shadow-sm hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none ${
-                      pathname === "/categories" ? "text-primary" : ""
-                    } `}
-                    value={selectedCategory} onChange={handleCategoryChange}
-                  >
-                    <option className="py-2 px-3 rounded-lg text-sm text-gray-800 hover:bg-gray-100 focus:outline-none focus:bg-gray-100" value="">Select a category</option>
-                    {categories.map((category) => (
-                      <option
-                        className="py-2 px-3 rounded-lg text-sm text-gray-800 hover:bg-gray-100 focus:outline-none focus:bg-gray-100"
-                        key={category._id}
-                        value={`${category._id}:${category.name}`}
+                      <select
+                        className={`text-accent transition hover:text-accent/75 hs-dropdown-toggle py-3 px-4 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-gray-200 bg-white shadow-sm hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none ${
+                          pathname === "/categories" ? "text-primary" : ""
+                        } `}
+                        value={selectedCategory}
+                        onChange={handleCategoryChange}
                       >
-                        {category.name}
-                      </option>
-                    ))}
-                  </select>
+                        <option
+                          className="py-2 px-3 rounded-lg text-sm text-gray-800 hover:bg-gray-100 focus:outline-none focus:bg-gray-100"
+                          value=""
+                        >
+                          Select a category
+                        </option>
+                        {categories.map((category) => (
+                          <option
+                            className="py-2 px-3 rounded-lg text-sm text-gray-800 hover:bg-gray-100 focus:outline-none focus:bg-gray-100"
+                            key={category._id}
+                            value={`${category._id}:${category.name}`}
+                          >
+                            {category.name}
+                          </option>
+                        ))}
+                      </select>
                     </li>
                   </ul>
                 </nav>
@@ -185,9 +191,15 @@ export default function Header() {
                     className={`text-accent transition hover:text-accent/75 hs-dropdown-toggle py-3 px-4 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-gray-200 bg-white shadow-sm hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none ${
                       pathname === "/categories" ? "text-primary" : ""
                     } `}
-                    value={selectedCategory} onChange={handleCategoryChange}
+                    value={selectedCategory}
+                    onChange={handleCategoryChange}
                   >
-                    <option className="py-2 px-3 rounded-lg text-sm text-gray-800 hover:bg-gray-100 focus:outline-none focus:bg-gray-100" value="">Select a category</option>
+                    <option
+                      className="py-2 px-3 rounded-lg text-sm text-gray-800 hover:bg-gray-100 focus:outline-none focus:bg-gray-100"
+                      value=""
+                    >
+                      Select a category
+                    </option>
                     {categories.map((category) => (
                       <option
                         className="py-2 px-3 rounded-lg text-sm text-gray-800 hover:bg-gray-100 focus:outline-none focus:bg-gray-100"

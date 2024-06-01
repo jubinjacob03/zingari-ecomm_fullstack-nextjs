@@ -88,7 +88,6 @@ const Footer = () => {
                 <p class="text-lg font-medium text-gray-900">About Us</p>
 
                 <ul class="mt-2 space-y-4 text-sm">
-
                   <li>
                     <a
                       class="text-gray-700 transition hover:text-gray-700/75"
@@ -106,7 +105,6 @@ const Footer = () => {
                       Meet the Team
                     </a>
                   </li>
-
                 </ul>
               </div>
 
@@ -124,14 +122,13 @@ const Footer = () => {
                   </li>
 
                   <li>
-                  <a
+                    <a
                       class="text-gray-700 transition hover:text-gray-700/75"
                       href="#"
                     >
                       Wardrobe Accessories
                     </a>
                   </li>
-
                 </ul>
               </div>
 
@@ -139,7 +136,6 @@ const Footer = () => {
                 <p class="text-lg font-medium text-gray-900">Helpful Links</p>
 
                 <ul class="mt-2 space-y-4 text-sm">
-
                   <li>
                     <a
                       class="text-gray-700 transition hover:text-gray-700/75"

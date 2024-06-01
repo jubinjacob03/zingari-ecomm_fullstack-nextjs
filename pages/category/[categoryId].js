@@ -57,7 +57,7 @@ export default function CategoryPage({ categoryProducts }) {
           </div>
           <div className="grid grid-cols-2 gap-x-3 md:gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 xl:gap-x-8 px-8 py-8">
             {filteredProducts.length === 0 ? (
-               <p className="col-span-full text-center mt-20 text-xl">
+              <p className="col-span-full text-center mt-20 text-xl">
                 Sorry, No products available at the moment.
               </p>
             ) : (
@@ -87,7 +87,9 @@ export default function CategoryPage({ categoryProducts }) {
 
                         <div className="mt-1.5 flex flex-col items-center justify-between text-text">
                           <p className="tracking-wide text-primary text-sm md:text-md">
-                            Rs. {formatPrice(product.price)}
+                            {product.stock === 0
+                              ? "OUT OF STOCK"
+                              : `Rs. ${formatPrice(product.price)}`}
                           </p>
 
                           <div className="col-span-12 text-center w-full mt-3">
@@ -96,7 +98,12 @@ export default function CategoryPage({ categoryProducts }) {
                                 addProduct(product._id, selectedSize);
                                 toast.success("Item added to cart !!");
                               }}
-                              className="disabled block rounded-md bg-secondary px-5 py-3 text-md text-text w-full transition hover:bg-primary hover:text-white"
+                              className={`block rounded px-5 py-3 text-md w-full transition ${
+                                product?.stock === 0
+                                  ? "bg-secondary-disabled text-gray-100 cursor-not-allowed"
+                                  : "bg-secondary text-white hover:bg-primary"
+                              }`}
+                              disabled={product.stock === 0}
                             >
                               Add to cart
                             </button>

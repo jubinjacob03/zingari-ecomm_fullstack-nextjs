@@ -3,7 +3,7 @@ import { useContext } from "react";
 import { CartContext } from "../../lib/CartContext";
 
 export default function Hero({ product }) {
-  const selectedSize = "M"
+  const selectedSize = "M";
   const { addProduct } = useContext(CartContext);
   function addItemToCart() {
     addProduct(product._id, selectedSize);
@@ -29,18 +29,38 @@ export default function Hero({ product }) {
                 <div className="lg:hidden relative ">
                   <div className="grid grid-cols-1 gap-6">
                     <div className="w-72 h-80 overflow-hidden rounded-lg border border-secondary transform rotate-3 translate-x-4 hover:-rotate-6 hover:translate-x-8 transition-transform duration-300 ease-in-out">
-                      <img src={product.images[0]} alt="" className="h-full w-full object-cover object-center" />
+                      <img
+                        src={product.images[0]}
+                        alt=""
+                        className="h-full w-full object-cover object-center"
+                      />
                     </div>
                     <div className="w-72 h-80 overflow-hidden rounded-lg border border-secondary transform -rotate-2 translate-x-2 hover:rotate-4 hover:translate-x-4 transition-transform duration-300 ease-in-out">
-                      <img src={product.images[1]} alt="" className="h-full w-full object-cover object-center" />
+                      <img
+                        src={product.images[1]}
+                        alt=""
+                        className="h-full w-full object-cover object-center"
+                      />
                     </div>
                   </div>
                 </div>
                 <div className="flex gap-4 items-center max-sm:justify-center max-sm:mt-6">
-                  <button className="mt-6 inline-block rounded-md border border-transparent bg-primary px-6 py-3 text-center font-medium text-white hover:text-accent" onClick={addItemToCart}>
-                    Add to cart
-                  </button>
-                  <Link href="/products" className="mt-6 inline-block rounded-md  bg-transparent border border-accent px-6 py-3 text-center font-medium text-accent hover:text-primary hover:border-primary">
+                  {product.stock > 0 ? (
+                    <button
+                      className="mt-6 inline-block rounded-md border border-transparent bg-primary px-6 py-3 text-center font-medium text-white hover:text-accent"
+                      onClick={addItemToCart}
+                    >
+                      Add to cart
+                    </button>
+                  ) : (
+                    <button className="mt-6 inline-block rounded-md border border-transparent px-6 py-3 text-center font-medium hover:text-accent bg-secondary-disabled text-gray-100 cursor-not-allowed">
+                      OUT of STOCK
+                    </button>
+                  )}
+                  <Link
+                    href="/products"
+                    className="mt-6 inline-block rounded-md  bg-transparent border border-accent px-6 py-3 text-center font-medium text-accent hover:text-primary hover:border-primary"
+                  >
                     All Products
                   </Link>
                 </div>
@@ -49,18 +69,34 @@ export default function Hero({ product }) {
                 <div className="flex items-center space-x-6 lg:space-x-8">
                   <div className="grid flex-shrink-0 grid-cols-1 gap-y-6 lg:gap-y-8">
                     <div className="w-72 h-80 overflow-hidden rounded-lg border border-secondary transform rotate-3 translate-x-4 hover:-rotate-6 hover:translate-x-8 transition-transform duration-300 ease-in-out">
-                      <img src={product.images[0]} alt="" className="h-full w-full object-cover object-center" />
+                      <img
+                        src={product.images[0]}
+                        alt=""
+                        className="h-full w-full object-cover object-center"
+                      />
                     </div>
                     <div className="w-72 h-80 overflow-hidden rounded-lg border border-secondary transform -rotate-2 translate-x-2 hover:rotate-4 hover:translate-x-4 transition-transform duration-300 ease-in-out">
-                      <img src={product.images[1]} alt="" className="h-full w-full object-cover object-center" />
+                      <img
+                        src={product.images[1]}
+                        alt=""
+                        className="h-full w-full object-cover object-center"
+                      />
                     </div>
                   </div>
                   <div className="grid flex-shrink-0 grid-cols-1 gap-y-6 lg:gap-y-8">
                     <div className="w-72 h-80 overflow-hidden rounded-lg border border-secondary transform rotate-1 translate-x-3 hover:-rotate-2 hover:translate-x-4 transition-transform duration-300 ease-in-out">
-                      <img src={product.images[2]} alt="" className="h-full w-full object-cover object-center" />
+                      <img
+                        src={product.images[2]}
+                        alt=""
+                        className="h-full w-full object-cover object-center"
+                      />
                     </div>
                     <div className="w-72 h-80 overflow-hidden rounded-lg border border-secondary transform -rotate-4 translate-x-2 hover:rotate-8 hover:translate-x-3 transition-transform duration-300 ease-in-out">
-                      <img src={product.images[3]} alt="" className="h-full w-full object-cover object-center" />
+                      <img
+                        src={product.images[3]}
+                        alt=""
+                        className="h-full w-full object-cover object-center"
+                      />
                     </div>
                   </div>
                 </div>
