@@ -18,10 +18,6 @@ const formatPrice = (price) => {
 };
 
 export default function ProductPage({ product }) {
-  console.log(process.env.NEXT_PUBLIC_COVERSLIDE);
-  console.log(process.env.NEXT_PUBLIC_SECONDSLIDE);
-  console.log(process.env.NEXT_PUBLIC_TOPSIZECHART);
-  console.log(process.env.NEXT_PUBLIC_BOTTOMSIZECHART);
   const { addProduct } = useContext(CartContext);
   const [selectedSize, setSelectedSize] = useState("M");
   if (product) {
@@ -174,28 +170,28 @@ export default function ProductPage({ product }) {
               >
                 <SwiperSlide>
                   <img
-                    src={process.env.COVERSLIDE}
+                    src={process.env.NEXT_PUBLIC_COVERSLIDE}
                     alt="Size Chart"
                     className="w-full h-full object-contain object-center border rounded-lg p-2 mb-8"
                   />
                 </SwiperSlide>
                 <SwiperSlide>
                   <img
-                    src={process.env.SECONDSLIDE}
+                    src={process.env.NEXT_PUBLIC_SECONDSLIDE}
                     alt="Size Chart"
                     className="w-full h-full object-contain object-center border rounded-lg p-2 mb-8"
                   />
                 </SwiperSlide>
                 <SwiperSlide>
                   <img
-                    src={process.env.TOPSIZECHART}
+                    src={process.env.NEXT_PUBLIC_TOPSIZECHART}
                     alt="Size Chart"
                     className="w-full h-full object-contain object-center border rounded-lg p-2 mb-8"
                   />
                 </SwiperSlide>
                 <SwiperSlide>
                   <img
-                    src={process.env.BOTTOMSIZECHART}
+                    src={process.env.NEXT_PUBLIC_BOTTOMSIZECHART}
                     alt="Size Chart"
                     className="w-full h-full object-contain object-center border rounded-lg p-2 mb-8"
                   />
