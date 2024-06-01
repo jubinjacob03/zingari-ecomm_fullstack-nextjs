@@ -18,6 +18,10 @@ const formatPrice = (price) => {
 };
 
 export default function ProductPage({ product }) {
+  console.log(process.env.NEXT_PUBLIC_COVERSLIDE);
+  console.log(process.env.NEXT_PUBLIC_SECONDSLIDE);
+  console.log(process.env.NEXT_PUBLIC_TOPSIZECHART);
+  console.log(process.env.NEXT_PUBLIC_BOTTOMSIZECHART);
   const { addProduct } = useContext(CartContext);
   const [selectedSize, setSelectedSize] = useState("M");
   if (product) {
@@ -170,28 +174,28 @@ export default function ProductPage({ product }) {
               >
                 <SwiperSlide>
                   <img
-                    src="https://res.cloudinary.com/dusien6wm/image/upload/v1717006199/Pastel_minimalist_Size_Chart_Instagram_Post_20240529_012848_0000_t4vzgo.png"
+                    src={process.env.COVERSLIDE}
                     alt="Size Chart"
                     className="w-full h-full object-contain object-center border rounded-lg p-2 mb-8"
                   />
                 </SwiperSlide>
                 <SwiperSlide>
                   <img
-                    src="https://res.cloudinary.com/dusien6wm/image/upload/v1717006199/Pastel_minimalist_Size_Chart_Instagram_Post_20240529_012624_0000_j6r0qz.png"
+                    src={process.env.SECONDSLIDE}
                     alt="Size Chart"
                     className="w-full h-full object-contain object-center border rounded-lg p-2 mb-8"
                   />
                 </SwiperSlide>
                 <SwiperSlide>
                   <img
-                    src="https://res.cloudinary.com/dusien6wm/image/upload/v1716920346/Cream_Minimalist_Simple_Size_Chart_Instagram_Post_20240527_221644_0000_alhllu.png"
+                    src={process.env.TOPSIZECHART}
                     alt="Size Chart"
                     className="w-full h-full object-contain object-center border rounded-lg p-2 mb-8"
                   />
                 </SwiperSlide>
                 <SwiperSlide>
                   <img
-                    src="https://res.cloudinary.com/dusien6wm/image/upload/v1716920346/Cream_Minimalist_Simple_Size_Chart_Instagram_Post_20240527_224632_0000_eaydxb.png"
+                    src={process.env.BOTTOMSIZECHART}
                     alt="Size Chart"
                     className="w-full h-full object-contain object-center border rounded-lg p-2 mb-8"
                   />
