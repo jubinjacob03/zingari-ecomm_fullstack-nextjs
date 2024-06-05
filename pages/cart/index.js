@@ -53,8 +53,34 @@ export default function Cart() {
             });
           });
 
-          setProducts(updatedProducts);
-          console.log("Products:", updatedProducts);
+          // Adjust quantities based on stock
+          const adjustedProducts = updatedProducts.map((product) => {
+            const totalQuantityInCart = cartProducts.filter(
+              (item) =>
+                item.productId === product._id &&
+                item.selectedSize === product.selectedSize
+            ).length;
+
+            if (totalQuantityInCart > product.stock) {
+              // Remove excess products from cart
+              for (let i = totalQuantityInCart; i > product.stock; i--) {
+                decreaseProduct(
+                  product._id,
+                  product.selectedSize,
+                  "Product reached maximum stock !!"
+                );
+              }
+
+              product.quantity = product.stock;
+            } else {
+              product.quantity = totalQuantityInCart;
+            }
+
+            return product;
+          });
+
+          setProducts(adjustedProducts);
+          console.log("Products:", adjustedProducts);
           setLoading(false);
         });
     } else {
@@ -82,12 +108,12 @@ export default function Cart() {
     addProduct(id, selectedSize);
   }
 
-  function decreaseProduct(id, selectedSize) {
+  function decreaseProduct(id, selectedSize, message) {
     removeProduct(id, selectedSize);
-    toast.success("Removed product !!");
+    toast.success(message);
   }
 
-  function deleteCart(id) {
+  function deleteCart() {
     clearCart();
     setLoading(false);
     setProducts([]);
@@ -167,7 +193,9 @@ export default function Cart() {
                                 <p>
                                   Rs .
                                   {cartProducts.filter(
-                                    (item) => item.productId === product._id
+                                    (item) =>
+                                      item.productId === product._id &&
+                                      item.selectedSize === product.selectedSize
                                   ).length * product.price}
                                 </p>
                               </dl>
@@ -186,7 +214,8 @@ export default function Cart() {
                                   onClick={() =>
                                     decreaseProduct(
                                       product._id,
-                                      product.selectedSize
+                                      product.selectedSize,
+                                      "Product removed from cart !!"
                                     )
                                   }
                                 >
@@ -240,7 +269,12 @@ export default function Cart() {
                         <strike className="flex justify-between">
                           <dt>Delivery Charges</dt>
                           <dd>
-                            Rs. {formatPrice(Number((total * 0.2).toFixed(3)))}
+                            Rs.{" "}
+                            {formatPrice(
+                              Number(
+                                Math.min(130, (60 + total * 0.02).toFixed(3))
+                              )
+                            )}
                           </dd>
                         </strike>
 
