@@ -22,6 +22,15 @@ export default function CategoryPage({ categoryProducts }) {
   const [categoryName, setCategoryName] = useState("");
   const selectedSize = "M";
 
+  const itemsPerPage = 12;
+
+  const [currentPage, setCurrentPage] = useState(1);
+
+  const startIdx = (currentPage - 1) * itemsPerPage;
+  const endIdx = startIdx + itemsPerPage;
+  const paginatedProducts = filteredProducts.slice(startIdx, endIdx);
+  const totalPages = Math.ceil(filteredProducts.length / itemsPerPage);
+
   useEffect(() => {
     setFilteredProducts(categoryProducts);
   }, [categoryProducts]);
@@ -55,13 +64,13 @@ export default function CategoryPage({ categoryProducts }) {
               {categoryName}
             </h2>
           </div>
-          <div className="grid grid-cols-2 gap-x-3 md:gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 xl:gap-x-8 px-8 py-8">
-            {filteredProducts.length === 0 ? (
+          <div className="grid grid-cols-2 gap-x-3 md:gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-6 xl:gap-x-8 px-2 pt-12">
+            {paginatedProducts.length === 0 ? (
               <p className="col-span-full text-center mt-20 text-xl">
                 Sorry, No products available at the moment.
               </p>
             ) : (
-              filteredProducts.map((product) => (
+              paginatedProducts.map((product) => (
                 <div key={product._id}>
                   <div className="group block overflow-hidden border border-accent rounded-xl border-opacity-10">
                     <div className="">
@@ -115,6 +124,21 @@ export default function CategoryPage({ categoryProducts }) {
                 </div>
               ))
             )}
+          </div>
+          <div className="flex justify-center mt-8">
+            {Array.from({ length: totalPages }, (_, index) => (
+              <button
+                key={index}
+                onClick={() => setCurrentPage(index + 1)}
+                className={`px-4 py-2 mx-1 rounded-lg border ${
+                  currentPage === index + 1
+                    ? "bg-primary text-white"
+                    : "bg-white text-primary"
+                }`}
+              >
+                {index + 1}
+              </button>
+            ))}
           </div>
         </div>
       )}
