@@ -146,8 +146,8 @@ export default function About() {
                 embodies confidence, style, and individuality. Our journey began
                 with a vision to redefine the fashion industry by offering
                 unique, high-quality pieces that empower our customers to
-                express themselves authentically. Let's delve into what sets
-                Zingari apart in the competitive world of fashion.
+                express themselves authentically. Let&apos;s delve into what
+                sets Zingari apart in the competitive world of fashion.
               </p>
             </div>
             <div class="space-y-3">
@@ -169,7 +169,7 @@ export default function About() {
               confidence, creativity, and authenticity in every person who wears
               our creations.
               <br />
-              "Be
+              &apos;&apos;Be
               <span class="text-blue-600 decoration-2 hover:underline font-medium">
                 &nbsp;bold
               </span>
@@ -181,7 +181,7 @@ export default function About() {
               <span class="text-blue-600 decoration-2 hover:underline font-medium">
                 &nbsp;Zingari
               </span>
-              ."
+              .&apos;&apos;
             </p>
 
             <ul class="list-disc list-outside space-y-5 ps-5 text-lg text-gray-800">

@@ -1,6 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import Logo from "../../public/logo.png";
+import Link from 'next/link';
 
 const currYear = new Date().getFullYear();
 
@@ -89,12 +90,11 @@ const Footer = () => {
 
                 <ul class="mt-2 space-y-4 text-sm">
                   <li>
-                    <a
+                  <Link href="/about"
                       class="text-gray-700 transition hover:text-gray-700/75"
-                      href="/about"
                     >
                       Who we Are
-                    </a>
+                    </Link>
                   </li>
                 </ul>
               </div>
