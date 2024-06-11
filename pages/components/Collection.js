@@ -12,7 +12,7 @@ export default function Collection({ product }) {
           <div class="max-w-screen-2xl px-4 py-8 mx-auto sm:px-6 sm:py-12 lg:px-8">
             <header class="text-center">
               <h2 className="text-xl font-bold text-gray-900 sm:text-3xl">
-                New Collection
+                Latest Collection
               </h2>
 
               <p className="max-w-lg mx-auto mt-4 text-gray-500">

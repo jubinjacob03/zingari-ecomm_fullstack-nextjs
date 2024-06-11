@@ -14,13 +14,16 @@ export default function Hero({ product }) {
         <div className="lg:py-40 min-h-[650px]">
           <div className="relative mx-auto sm:static sm:px-6 lg:px-8">
             <div className="sm:max-w-xl text-start">
-              <h1 className="text-4xl sm:text-5xl lg:text-5xl lg:hidden max-md:mb-6 font-bold tracking-tight text-primary">
-                At <span className="text-accent">50%</span> Off
+              <h1 className="animate-bounce text-4xl sm:text-5xl lg:text-5xl max-md:mb-6 font-bold tracking-tight text-primary my-5 text-center md:text-left">
+                Popular<span className="text-accent"> choice</span>
               </h1>
-              <h1 className="text-4xl sm:text-5xl lg:text-5xl font-bold tracking-tight text-text">
+              <h1 className="text-3xl sm:text-4xl lg:text-4xl font-bold tracking-tight text-text ml-2">
                 {product.title}
               </h1>
-              <p className="mt-4 line-clamp-3 text-lg sm:text-xl lg:text-2xl text-gray-500">
+              <p
+                className="mt-4 line-clamp-5 text-lg sm:text-lg lg:text-xl text-gray-500 ml-2"
+                style={{ whiteSpace: "pre-line" }}
+              >
                 {product.description}
               </p>
 
