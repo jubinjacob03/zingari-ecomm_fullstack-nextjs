@@ -82,12 +82,20 @@ export default function ProductPage({ product }) {
               <h2 className="text-xl font-semibold text-gray-900">
                 Description
               </h2>
-              <p className="mt-2 text-gray-700">{product.description}</p>
+              <p
+                className="mt-2 text-gray-700"
+                style={{ whiteSpace: "pre-line" }}
+              >
+                {product.description}
+              </p>
             </div>
 
             <div className="mt-6">
               <h2 className="text-xl font-semibold text-gray-900">Details</h2>
-              <p className="mt-2 text-gray-700 list-disc list-inside">
+              <p
+                className="mt-2 text-gray-700 list-disc list-inside"
+                style={{ whiteSpace: "pre-line" }}
+              >
                 {product?.details}
               </p>
             </div>
