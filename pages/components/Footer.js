@@ -10,7 +10,7 @@ const Footer = () => {
       <footer class="bg-white">
         <div class="mx-auto max-w-screen-2xl px-4 pb-6 pt-16 sm:px-6 lg:px-8 lg:pt-24">
           <div class="grid grid-cols-1 gap-8 lg:grid-cols-3">
-            <div>
+            <div className="flex flex-col md:flex-row justify-center items-center gap-12">
               <div class="flex justify-center sm:justify-start">
                 <Image src={Logo} alt="Logo" width={100} height={100} />
               </div>
@@ -84,32 +84,23 @@ const Footer = () => {
             </div>
 
             <div class="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-3 gap-8 lg:col-span-2">
-              <div class="text-center sm:text-left">
+              <div class="text-center sm:text-left flex flex-col items-center justify-center">
                 <p class="text-lg font-medium text-gray-900">About Us</p>
 
                 <ul class="mt-2 space-y-4 text-sm">
                   <li>
                     <a
                       class="text-gray-700 transition hover:text-gray-700/75"
-                      href="#"
+                      href="/about"
                     >
                       Who we Are
                     </a>
                   </li>
-
-                  <li>
-                    <a
-                      class="text-gray-700 transition hover:text-gray-700/75"
-                      href="#"
-                    >
-                      Meet the Team
-                    </a>
-                  </li>
                 </ul>
               </div>
 
-              <div class="text-center sm:text-left">
-                <p class="text-lg font-medium text-gray-900">Our Services</p>
+              <div class="text-center sm:text-left flex flex-col items-center justify-center">
+                <p class="text-lg font-medium text-gray-900">Follow US</p>
 
                 <ul class="mt-2 space-y-4 text-sm">
                   <li>
@@ -117,45 +108,26 @@ const Footer = () => {
                       class="text-gray-700 transition hover:text-gray-700/75"
                       href="#"
                     >
-                      Custom designs
-                    </a>
-                  </li>
-
-                  <li>
-                    <a
-                      class="text-gray-700 transition hover:text-gray-700/75"
-                      href="#"
-                    >
-                      Wardrobe Accessories
+                      Instagram
                     </a>
                   </li>
                 </ul>
               </div>
 
-              <div class="text-center sm:text-left">
-                <p class="text-lg font-medium text-gray-900">Helpful Links</p>
+              <div class="text-center sm:text-left flex flex-col items-center justify-center">
+                <p class="text-lg font-medium text-gray-900">Help Desk</p>
 
                 <ul class="mt-2 space-y-4 text-sm">
-                  <li>
-                    <a
-                      class="text-gray-700 transition hover:text-gray-700/75"
-                      href="#"
-                    >
-                      {" "}
-                      Support{" "}
-                    </a>
-                  </li>
-
                   <li>
                     <a
                       class="group flex items-center gap-2.5 justify-center sm:justify-start"
-                      href="#"
+                      href="https://mail.google.com/mail/?view=cm&fs=1&to=support@example.com&su=Support%20Request&body=Hi%20Zingari%20Team,%0D%0A%0D%0A%5BDescribe%20your%20issue%20here%5D%0D%0A%0D%0AThank%20you,%0D%0A%5BYour%20Name%5D%0D%0A%5BYour%20Contact%20Information%5D"
                     >
                       <span class="text-gray-700 transition group-hover:text-gray-700/75">
-                        Live Chat
+                        Support
                       </span>
 
-                      <span class="relative flex h-2 w-2">
+                      <span class="relative flex h-2 w-2 ml-3">
                         <span class="absolute inline-flex h-full w-full animate-ping rounded-full bg-rose-400 opacity-75"></span>
                         <span class="relative inline-flex size-2 rounded-full bg-rose-500"></span>
                       </span>
@@ -188,7 +160,7 @@ const Footer = () => {
                 </a>
               </p>
 
-              <p class="mt-4 text-sm text-gray-500 sm:order-first sm:mt-0">
+              <p class="mt-4 text-sm text-gray-500 sm:order-first sm:mt-0 cursor-pointer">
                 &copy; {currYear} ZINGARI
               </p>
             </div>
