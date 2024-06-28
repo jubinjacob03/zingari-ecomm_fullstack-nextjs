@@ -1,7 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import Logo from "../../public/logo.png";
-import Link from 'next/link';
+import Link from "next/link";
 
 const currYear = new Date().getFullYear();
 
@@ -42,7 +42,7 @@ const Footer = () => {
 
                 <li>
                   <a
-                    href="#"
+                    href="https://www.instagram.com/_zingari?igsh=MTFwbTJrZmtycGx4bw"
                     rel="noreferrer"
                     target="_blank"
                     class="text-rose-400 transition hover:text-rose-600/75"
@@ -65,7 +65,7 @@ const Footer = () => {
 
                 <li>
                   <a
-                    href="#"
+                    href="https://wa.me/6238142475"
                     rel="noreferrer"
                     target="_blank"
                     class="text-rose-400 transition hover:text-rose-600/75"
@@ -90,7 +90,8 @@ const Footer = () => {
 
                 <ul class="mt-2 space-y-4 text-sm">
                   <li>
-                  <Link href="/about"
+                    <Link
+                      href="/about"
                       class="text-gray-700 transition hover:text-gray-700/75"
                     >
                       Who we Are
@@ -106,7 +107,7 @@ const Footer = () => {
                   <li>
                     <a
                       class="text-gray-700 transition hover:text-gray-700/75"
-                      href="#"
+                      href="https://www.instagram.com/_zingari?igsh=MTFwbTJrZmtycGx4bw"
                     >
                       Instagram
                     </a>
