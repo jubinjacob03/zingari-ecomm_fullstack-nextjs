@@ -3,34 +3,19 @@ import React from "react";
 export default function About() {
   return (
     <div className="mt-14 mx-4 md:mt-4 md:mx-auto">
-      <section class="rounded-3xl overflow-hidden bg-[url(https://images.unsplash.com/photo-1562157873-818bc0726f68?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=654&q=80)] bg-cover bg-top bg-no-repeat">
-        <div class="bg-black/25 p-8 md:p-12 lg:px-16 lg:py-24">
-          <div class="text-center ltr:sm:text-left">
-            <h2 class="text-2xl font-bold text-white sm:text-3xl md:text-5xl my-4">
-              About US
-            </h2>
-
-            <p class="text-white/90 text-sm md:mt-6 block md:text-lg md:leading-relaxed"></p>
-
-            <div class="mt-4 sm:mt-8">
-              <a
-                href="#"
-                class="inline-block rounded-full bg-indigo-600 px-4 md:px-12 py-3 text-xs md:text-sm font-medium text-white transition hover:bg-indigo-700 focus:outline-none focus:ring focus:ring-yellow-400"
-              >
-                Explore Our Products
-              </a>
-            </div>
-          </div>
-        </div>
-      </section>
+      <img
+        class="w-full object-cover rounded-xl"
+        src="/about-description.png"
+        alt="Image Description"
+      />
       <div class="md:max-w-[68rem] px-4 pt-6 lg:pt-10 pb-12 sm:px-6 lg:px-8 mx-auto">
         <div class="md:max-w-[68rem]">
           <div class="flex justify-between items-center mb-6">
             <div class="flex flex-col md:flex-row w-full sm:items-center gap-x-5 sm:gap-x-3">
               <div class="flex justify-center flex-shrink-0">
                 <img
-                  class="size-12 rounded-full"
-                  src="https://images.unsplash.com/photo-1669837401587-f9a4cfe3126e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=2&w=320&h=320&q=80"
+                  class="h-56 w-56 rounded-full"
+                  src="/logo.png"
                   alt="Image Description"
                 />
               </div>
@@ -40,60 +25,18 @@ export default function About() {
                   <div>
                     <div class="inline-block">
                       <div class=" sm:mb-1 block text-start cursor-pointer">
-                        <span class="font-semibold text-gray-800">
-                          Leyla Ludic
+                        <span class="font-semibold text-gray-800 text-2xl">
+                          Z<span className="text-primary">in</span>gar<span className="text-primary">i</span>
                         </span>
-
-                        <div class="opacity-0 transition-opacity inline-block absolute invisible z-10 max-w-xs cursor-default bg-gray-900 divide-y divide-gray-700 shadow-lg rounded-xl">
-                          <div class="flex justify-between items-center px-4 py-3 sm:px-5">
-                            <ul class="text-xs space-x-3">
-                              <li class="inline-block">
-                                <span class="font-semibold text-gray-200">
-                                  56
-                                </span>
-                                <span class="text-gray-400">articles</span>
-                              </li>
-                              <li class="inline-block">
-                                <span class="font-semibold text-gray-200">
-                                  1k+
-                                </span>
-                                <span class="text-gray-400">followers</span>
-                              </li>
-                            </ul>
-
-                            <div>
-                              <button
-                                type="button"
-                                class="py-1.5 px-2.5 inline-flex items-center gap-x-2 text-xs font-semibold rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none"
-                              >
-                                <svg
-                                  class="flex-shrink-0 size-3.5"
-                                  xmlns="http://www.w3.org/2000/svg"
-                                  width="16"
-                                  height="16"
-                                  fill="currentColor"
-                                  viewBox="0 0 16 16"
-                                >
-                                  <path d="M1 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" />
-                                  <path
-                                    fill-rule="evenodd"
-                                    d="M13.5 5a.5.5 0 0 1 .5.5V7h1.5a.5.5 0 0 1 0 1H14v1.5a.5.5 0 0 1-1 0V8h-1.5a.5.5 0 0 1 0-1H13V5.5a.5.5 0 0 1 .5-.5z"
-                                  />
-                                </svg>
-                                Follow
-                              </button>
-                            </div>
-                          </div>
-                        </div>
                       </div>
                     </div>
 
                     <ul class="text-xs text-gray-500">
                       <li class="inline-block relative pe-6 last:pe-0 last-of-type:before:hidden before:absolute before:top-1/2 before:end-2 before:-translate-y-1/2 before:size-1 before:bg-gray-300 before:rounded-full">
-                        Jan 18
+                        Fashion Brand
                       </li>
                       <li class="inline-block relative pe-6 last:pe-0 last-of-type:before:hidden before:absolute before:top-1/2 before:end-2 before:-translate-y-1/2 before:size-1 before:bg-gray-300 before:rounded-full">
-                        8 min read
+                        EST. 2024
                       </li>
                     </ul>
                   </div>
@@ -102,6 +45,7 @@ export default function About() {
                     <button
                       type="button"
                       class="py-1.5 px-2.5 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none"
+                      onClick={() => { window.location.href = 'https://www.instagram.com/direct/t/_zingari/'; }}
                     >
                       <svg
                         fill="#000000"
@@ -206,21 +150,17 @@ export default function About() {
 
             <blockquote class="text-center p-4 sm:px-7">
               <p class="text-xl font-medium text-gray-800 md:text-2xl md:leading-normal xl:text-2xl xl:leading-normal">
-                To say that switching to Preline has been life-changing is an
-                understatement. My business has tripled and I got my life back.
+              "Style is a way to say who you are without having to speak."
               </p>
-              <p class="mt-5 text-gray-800">Nicole Grazioso</p>
+              <p class="mt-5 text-gray-800">— Rachel Zoe</p>
             </blockquote>
 
             <figure>
               <img
                 class="w-full object-cover rounded-xl"
-                src="https://images.unsplash.com/photo-1670272505340-d906d8d77d03?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80"
+                src="/about-banner.png"
                 alt="Image Description"
               />
-              <figcaption class="mt-3 text-sm text-center text-gray-500">
-                A woman sitting at a table.
-              </figcaption>
             </figure>
 
             <h3 class="text-2xl font-semibold">Conclusion</h3>
@@ -237,13 +177,13 @@ export default function About() {
                 #zingari
               </span>
               <span class="m-1 inline-flex items-center gap-1.5 py-2 px-3 rounded-full text-sm bg-gray-100 text-gray-800 hover:bg-gray-200 cursor-pointer">
-                Web development
+                #trending
               </span>
               <span class="m-1 inline-flex items-center gap-1.5 py-2 px-3 rounded-full text-sm bg-gray-100 text-gray-800 hover:bg-gray-200 cursor-pointer">
-                Free
+                #beboldbefearlessbezingari
               </span>
               <span class="m-1 inline-flex items-center gap-1.5 py-2 px-3 rounded-full text-sm bg-gray-100 text-gray-800 hover:bg-gray-200 cursor-pointer">
-                Team
+                @zingari
               </span>
             </div>
           </div>
