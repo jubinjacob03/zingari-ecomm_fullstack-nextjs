@@ -1,3 +1,61 @@
+# Zingari Ecommerce Website NextJS
+
+This is a freelance project focused on building a fully functional ecommerce website using NextJS.
+
+## Introduction
+
+This project harnesses the power of Next.js to build a robust and efficient full-stack application. The frontend and backend are seamlessly connected using a comprehensive API for CRUD operations, with MongoDB as the database. User authentication is handled via Google Auth and JWT, while Stripe is integrated for payment processing. Additionally, Tailwind CSS is used to create a beautiful and responsive user interface.
+
+## Features
+
+- **User Authentication**: Secure login and registration using Google Auth and JWT.
+- **Payment Integration**: Seamless payment processing with Stripe.
+- **Database**: CRUD operations connected to a MongoDB database.
+- **Tailwind CSS**: Elegant and responsive UI design.
+- **E-commerce Functionality**:
+  - Cart view
+  - Product page
+  - Order placing
+- **Admin Panel**: Separate Next.js application for admin functionalities such as order tracking and product management.
+
+## Installation
+
+1. Clone the repository:
+```sh
+   git clone https://github.com/jubinjacob03/zingari-ecomm_fullstack-nextjs.git
+```
+
+> [!IMPORTANT]
+> You have to create an <em><strong>.env</strong></em> file for the credentials to be used, failing to do so renders the project unusable. Therefore after successfully cloning the repo, add your credentials to connect with the services used !!!
+---
+```bash
+MONGODB_URI = "key"
+GOOGLE_ID = "key"
+GOOGLE_SECRET = "key"
+NEXTAUTH_SECRET= "key"
+STRIPE_KEY = "key"
+STRIPE_PKEY = "key"
+SUCCESS_URL = "redirect_url_for_stripe_webhook"
+STRIPE_WEBHOOK_SECRET = "key"
+FEATURED_PRODUCT_ID = "ObjectId"
+COLLECTION_PRODUCT_ID = "ObjectId"
+NEXT_PUBLIC_COVERSLIDE = "imglink"
+NEXT_PUBLIC_SECONDSLIDE = "imglink"
+NEXT_PUBLIC_TOPSIZECHART = "imglink"
+NEXT_PUBLIC_BOTTOMSIZECHART= "imglink"
+```
+> [!CAUTION]
+> The App is compatible with node 18 (LTS) or higher, use nvm to run in separate environment if needed !
+---
+
+```bash
+# If using nvm
+nvm use 18.0.0
+```
+---
+
+# Auto Generated
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
