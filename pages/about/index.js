@@ -150,7 +150,7 @@ export default function About() {
 
             <blockquote class="text-center p-4 sm:px-7">
               <p class="text-xl font-medium text-gray-800 md:text-2xl md:leading-normal xl:text-2xl xl:leading-normal">
-              "Style is a way to say who you are without having to speak."
+              &quot; Style is a way to say who you are without having to speak.&quot;
               </p>
               <p class="mt-5 text-gray-800">— Rachel Zoe</p>
             </blockquote>
